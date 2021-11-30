@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 
 namespace projekuppgift_2
@@ -8,48 +8,73 @@ namespace projekuppgift_2
         static void Main(string[] args)
         {
 
-            Console.WriteLine("välj ett av följande alternativ");
-            Console.WriteLine("1. visa topplistan");
-            Console.WriteLine("2. ändra på topplistan");
-            Console.WriteLine("3. visa hela topplistan");
-            Console.WriteLine("4. söka efter ett låtnamn");
-            Console.WriteLine("5. avsluta programmet");
-
-            string användarensval = "";
-            användarensval = Console.ReadLine();
-
             string[] låtar = new string[20];
 
             for (int i = 0; i < låtar.Length; i++)
             {
                 låtar[i] = "tom";
             }
-            
 
-            switch (användarensval)
+            string menyval = "0";
+            while (menyval != "5")
             {
-                case "1":
-                    Console.WriteLine($"här är alla låtar som finns inskrivna ");
-                    for (int i = 0; i < låtar.Length; i++)
-                    {
-                        Console.WriteLine(låtar[i]);
-                    }
-                    break;
+
+                Console.WriteLine("välj ett av följande alternativ");
+                Console.WriteLine("1. visa topplistan");
+                Console.WriteLine("2. ändra på topplistan");
+                Console.WriteLine("3. Ändra på en Låt i topplistan");
+                Console.WriteLine("4. söka efter ett låtnamn");
+                Console.WriteLine("5. avsluta programmet");
+
+                string användarensval = "";
+                användarensval = Console.ReadLine();
+
+                
+
+                switch (användarensval)
+                {
+                    case "1":
+                        Console.WriteLine($"här är alla låtar som finns inskrivna ");
+                        for (int i = 0; i < låtar.Length; i++)
+                        {
+                            Console.WriteLine(låtar[i]);
+                        }
+                        break;
 
 
-                case "2":
-                    for (int i = 0; i < låtar.Length; i++)
-                    {
-                        Console.WriteLine($"skriv in låt number {i + 1}");
-                        låtar[i] = Console.ReadLine();
-                    }
-                    break;
+                    case "2":
+                        for (int i = 0; i < låtar.Length; i++)
+                        {
+                            Console.WriteLine($"skriv in låt number {i + 1}");
+                            låtar[i] = Console.ReadLine();
+
+                        }
+
+                        break;
+
+
+
+                    case "3":
+                        {
+                            Console.WriteLine("Ändra en låt i din lista. Välj ett nummer i din topplista.");
+                            int LåtVal = int.Parse(Console.ReadLine());
+                            Console.WriteLine("Vad vill du ändra låten till?");
+                            låtar[LåtVal - 1] = Console.ReadLine();
+                        }
+                        break;
+
+                    case "4":
+
+
+                        break;
+
+                }
             }
 
-            
-            
 
-            
+
+
+
 
         }
     }
